@@ -1,0 +1,14 @@
+<div>
+  <!-- Interpolation: Displays the value of the 'username' property from the component class -->
+  <h2>Welcome, {{ username }}!</h2>
+
+  <!-- Two-way data binding using ngModel:
+         - Binds the input field to the 'username' property
+         - Updates the property when user types
+         - Reflects the property's value in the input field -->
+  <input [(ngModel)]="username" placeholder="Enter your name" />
+
+  <!-- Event binding:
+         - When the button is clicked, it calls the 'updateName()' method -->
+  <button (click)="updateName()">Set Default Name</button>
+</div>

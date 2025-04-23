@@ -1,0 +1,55 @@
+<div>
+  <!-- Interpolation + Pipe: Displays name in uppercase -->
+  <h2>Welcome, {{ username | uppercase }}!</h2>
+
+  <!-- Date Pipe: Formats current date in full readable form -->
+  <p>Today is: {{ today | date : "fullDate" }}</p>
+
+  <!-- Currency Pipe: Formats salary as USD -->
+  <p>Your salary: {{ salary | currency : "USD" }}</p>
+
+  <!-- Two-way data binding: Updates username in real-time -->
+  <input [(ngModel)]="username" placeholder="Enter your name" />
+
+  <!-- Event binding: Calls method on click -->
+  <button (click)="updateName()">Set Default Name</button>
+
+  <!-- *ngIf: Conditionally shows a section based on boolean -->
+  <div *ngIf="showDetails">
+    <!-- ngClass: Applies class based on condition (like Bootstrap classes) -->
+    <!-- ngStyle: Applies inline styles dynamically -->
+    <p
+      [ngClass]="{
+        'text-success': username.length > 5,
+        'text-warning': username.length <= 5
+      }"
+      [ngStyle]="{ fontWeight: 'bold', fontSize: '18px' }"
+    >
+      This is some detailed user info!
+    </p>
+  </div>
+
+  <!-- Button to toggle the *ngIf content -->
+  <button (click)="toggleDetails()">
+    {{ showDetails ? "Hide" : "Show" }} Details
+  </button>
+
+  <!-- *ngFor: Loops through the colors array -->
+  <h4>Favorite Colors</h4>
+  <ul>
+    <li *ngFor="let color of favoriteColors">
+      {{ color }}
+    </li>
+  </ul>
+
+  <!-- *ngSwitch: Renders content depending on the current "status" -->
+  <div [ngSwitch]="status">
+    <p *ngSwitchCase="'active'" class="text-success">Status: ACTIVE</p>
+    <p *ngSwitchCase="'inactive'" class="text-danger">Status: INACTIVE</p>
+    <p *ngSwitchCase="'pending'" class="text-warning">Status: PENDING</p>
+    <p *ngSwitchDefault class="text-muted">Status: UNKNOWN</p>
+  </div>
+
+  <!-- Button to cycle through statuses -->
+  <button (click)="switchStatus()">Switch Status</button>
+</div>

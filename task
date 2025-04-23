@@ -1,0 +1,8 @@
+Build a simple user profile component with input fields for name and email, and display the entered data using interpolation
+
+
+Read
+https://angular.dev/tools/cli
+https://angular.dev/guide/components
+https://angular.dev/guide/templates
+https://angular.dev/guide/directives/structural-directives
